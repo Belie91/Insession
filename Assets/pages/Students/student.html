@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Student Dashboard</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Welcome, Student</h1>
+      <button onclick="logout()">Logout</button>
+    </header>
+
+    <div class="container">
+      <!-- Sidebar Navigation -->
+      <nav class="sidebar">
+        <ul class="sidebarUnorderedList">
+          <li onclick="showSection('profile')" id="menu-profile">👤 Profile</li>
+          <li onclick="showSection('sessions')" id="menu-sessions">
+            Today's Sessions
+          </li>
+          <li onclick="showSection('announcements')" id="menu-announcements">
+            Announcements
+          </li>
+        </ul>
+      </nav>
+
+      <!-- Main Content Area -->
+      <main class="content">
+        <!-- Profile Section -->
+        <section id="profile">
+          <h2>👤 Student Profile</h2>
+          <div class="profile-container">
+            <img
+              id="profilePicture"
+              src="default-profile.png"
+              alt="Profile Picture"
+            />
+            <input type="file" id="uploadProfilePic" accept="image/*" />
+          </div>
+          <p><strong>Name:</strong> <span id="studentName">John Doe</span></p>
+          <p>
+            <strong>Student ID:</strong> <span id="studentID">STU12345</span>
+          </p>
+          <p>
+            <strong>Email:</strong>
+            <span id="studentEmail">johndoe@example.com</span>
+          </p>
+        </section>
+
+        <!-- Today's Sessions -->
+        <section id="sessions" style="display: none">
+          <h2>Today's Class Sessions</h2>
+          <ul id="classSchedule"></ul>
+        </section>
+
+        <!-- Announcements -->
+        <section id="announcements" style="display: none">
+          <h2>Announcements</h2>
+          <ul id="announcementsList"></ul>
+        </section>
+      </main>
+    </div>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const classScheduleList = document.getElementById("classSchedule");
+        const announcementsList = document.getElementById("announcementsList");
+
+        // Load profile picture from local storage
+        const storedProfilePic = localStorage.getItem("profilePicture");
+        if (storedProfilePic) {
+          document.getElementById("profilePicture").src = storedProfilePic;
+        }
+
+        // Profile Picture Upload Function
+        document
+          .getElementById("uploadProfilePic")
+          .addEventListener("change", function (event) {
+            const file = event.target.files[0];
+            if (file) {
+              const reader = new FileReader();
+              reader.onload = function (e) {
+                document.getElementById("profilePicture").src = e.target.result;
+                localStorage.setItem("profilePicture", e.target.result);
+              };
+              reader.readAsDataURL(file);
+            }
+          });
+
+        // Dummy class schedule (Replace with real data from a database)
+        const classSchedule = {
+          Monday: ["Mathematics - 8:00 AM", "Physics - 10:00 AM"],
+          Tuesday: ["Chemistry - 9:00 AM", "Computer Science - 11:00 AM"],
+          Wednesday: ["English - 8:30 AM", "Biology - 10:30 AM"],
+          Thursday: ["History - 9:00 AM", "Economics - 11:00 AM"],
+          Friday: ["Programming - 8:00 AM", "Database Systems - 10:00 AM"],
+        };
+
+        // Show PIN input field
+        window.showPinInput = function (sessionId) {
+          document.getElementById(`pinInput-${sessionId}`).style.display =
+            "block";
+        };
+
+        // Dummy announcements (Replace with real data)
+        const announcements = [
+          "Exam registration closes on March 10.",
+          "University Sports Week starts next Monday!",
+          "Library will be closed on Friday for maintenance.",
+        ];
+
+        function getTodayClasses() {
+          const today = new Date().toLocaleDateString("en-US", {
+            weekday: "long",
+          });
+          return classSchedule[today] || ["No classes scheduled today"];
+        }
+
+        function displayData(listElement, dataArray) {
+          listElement.innerHTML = "";
+          dataArray.forEach((item) => {
+            const li = document.createElement("li");
+            li.textContent = item;
+            listElement.appendChild(li);
+          });
+        }
+
+        // Display today's class schedule
+        displayData(classScheduleList, getTodayClasses());
+
+        // Display announcements
+        displayData(announcementsList, announcements);
+      });
+
+      function showSection(sectionId) {
+        document.querySelectorAll("main section").forEach((section) => {
+          section.style.display = "none";
+        });
+        document.getElementById(sectionId).style.display = "block";
+
+        // Update active menu highlight
+        document
+          .querySelectorAll(".sidebar li")
+          .forEach((item) => item.classList.remove("active"));
+        document.getElementById("menu-" + sectionId).classList.add("active");
+      }
+
+      function logout() {
+        window.location.href = "index.html"; // Redirect to main page
+      }
+    </script>
+  </body>
+</html>
