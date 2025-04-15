@@ -4,7 +4,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Student Dashboard</title>
-    <link rel="stylesheet" href="style.css" />
+
+    <link rel="stylesheet" href="/Assets/css/student.css" />
   </head>
   <body>
     <header>
@@ -37,7 +38,15 @@
               src="default-profile.png"
               alt="Profile Picture"
             />
-            <input type="file" id="uploadProfilePic" accept="image/*" />
+            <div>
+              <label for="uploadProfilePic">Upload Profile Picture:</label>
+              <input
+                type="file"
+                id="uploadProfilePic"
+                accept="image/*"
+                title="Choose a profile picture to upload"
+              />
+            </div>
           </div>
           <p><strong>Name:</strong> <span id="studentName">John Doe</span></p>
           <p>
@@ -50,13 +59,13 @@
         </section>
 
         <!-- Today's Sessions -->
-        <section id="sessions" style="display: none">
+        <section id="sessions">
           <h2>Today's Class Sessions</h2>
           <ul id="classSchedule"></ul>
         </section>
 
         <!-- Announcements -->
-        <section id="announcements" style="display: none">
+        <section id="announcements">
           <h2>Announcements</h2>
           <ul id="announcementsList"></ul>
         </section>
