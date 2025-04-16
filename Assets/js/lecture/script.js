@@ -39,3 +39,24 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 });
+
+// Attach the generatePin function to the global window object
+window.generatePin = function (lectureId) {
+  const pin = Math.floor(100000 + Math.random() * 900000); // 6-digit random PIN
+  const pinKey = `pin-${lectureId}`;
+  const expiry = Date.now() + 10 * 60 * 1000; // 10 minutes from now
+
+  localStorage.setItem(pinKey, JSON.stringify({ pin, expiry }));
+
+  const pinDisplay = document.getElementById(`pin-${lectureId}`);
+  pinDisplay.textContent = `PIN: ${pin} (valid for 10 min)`;
+
+  // Optional: Remove PIN display after it expires
+  setTimeout(() => {
+    const stored = localStorage.getItem(pinKey);
+    if (stored && Date.now() > JSON.parse(stored).expiry) {
+      pinDisplay.textContent = "";
+      localStorage.removeItem(pinKey);
+    }
+  }, 10 * 60 * 1000); // 10 minutes
+};

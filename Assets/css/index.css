@@ -1,71 +1,71 @@
+/* Reset some default styling */
 * {
+  margin: 0;
+  padding: 0;
   box-sizing: border-box;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
 body {
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  margin: 0;
-  padding: 0;
-  background: #f0f4f8;
+  background: linear-gradient(to right, #6dd5ed, #2193b0);
+  color: #fff;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
 }
 
 header {
-  background-color: #007bff;
-  color: white;
+  background-color: rgba(0, 0, 0, 0.1);
+  padding: 2rem;
   text-align: center;
-  padding: 2rem 1rem;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
-main {
+header h1 {
+  font-size: 2rem;
+  color: #fff;
+}
+
+.main-content {
   flex: 1;
   display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 2rem;
-}
-
-form {
-  background: white;
-  padding: 2rem;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  width: 100%;
-  max-width: 400px;
-  display: flex;
   flex-direction: column;
-  gap: 1rem;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
 }
 
-input[type="text"],
-input[type="password"] {
-  padding: 0.75rem;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  font-size: 1rem;
+#signhead {
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
 }
 
-button {
-  background-color: #007bff;
-  color: white;
+.role-selection {
+  display: flex;
+  gap: 2rem;
+}
+
+.role-selection button {
+  padding: 1rem 2rem;
+  font-size: 1.2rem;
+  background-color: #ffffff;
+  color: #2193b0;
   border: none;
-  padding: 0.75rem;
-  font-size: 1rem;
-  border-radius: 5px;
+  border-radius: 8px;
   cursor: pointer;
-  transition: background-color 0.2s ease;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-button:hover {
-  background-color: #0056b3;
+.role-selection button:hover {
+  background-color: #f0f8ff;
+  transform: scale(1.05);
 }
 
-h2#signhead {
-  font-size: 1.5rem; /* Adjust font size */
-  color: #333; /* Change text color */
-  text-align: center; /* Center the text */
-  margin-bottom: 1rem; /* Add spacing below the heading */
-  font-weight: bold; /* Make the text bold */
+footer {
+  text-align: center;
+  padding: 1rem;
+  background-color: rgba(0, 0, 0, 0.1);
+  font-size: 0.9rem;
+  color: #e0e0e0;
 }

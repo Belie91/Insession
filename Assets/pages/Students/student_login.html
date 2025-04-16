@@ -4,28 +4,35 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Student Login</title>
-    <link rel="stylesheet" href="/Assets/css/style.css" />
+    <link rel="stylesheet" href="/Assets/css/studentlogin.css" />
   </head>
   <body>
-    <header>
-      <h1>Student Login</h1>
-    </header>
+    <div class="login-wrapper">
+      <header>
+        <h1>🎓 Student Login</h1>
+      </header>
 
-    <main>
-      <form id="studentLoginForm">
-        <input type="text" id="username" placeholder="Enter Id" required />
-        <input
-          type="password"
-          id="password"
-          placeholder="Enter Password"
-          required
-        />
-        <button type="submit">Login</button>
-      </form>
-      <p id="loginError" style="color: red; display: none">
-        Invalid credentials. Try again.
-      </p>
-    </main>
+      <main>
+        <form id="studentLoginForm" class="login-form">
+          <input
+            type="text"
+            id="username"
+            placeholder="Enter Student ID"
+            required
+          />
+          <input
+            type="password"
+            id="password"
+            placeholder="Enter Password"
+            required
+          />
+          <button type="submit">Login</button>
+          <p id="loginError" class="error-message">
+            Invalid credentials. Try again.
+          </p>
+        </form>
+      </main>
+    </div>
 
     <script>
       document

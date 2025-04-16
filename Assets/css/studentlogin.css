@@ -1,0 +1,71 @@
+/* Reset and base styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: linear-gradient(to right, #838cee, #abc5f3);
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  color: #fff;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.login-wrapper {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 3rem 2rem;
+  border-radius: 16px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  width: 90%;
+  max-width: 400px;
+  text-align: center;
+}
+
+header h1 {
+  margin-bottom: 2rem;
+  font-size: 1.8rem;
+  color: #fff;
+}
+
+.login-form input {
+  width: 100%;
+  padding: 0.9rem;
+  margin: 0.5rem 0;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+}
+
+.login-form input::placeholder {
+  color: #999;
+}
+
+.login-form button {
+  width: 100%;
+  padding: 0.9rem;
+  margin-top: 1rem;
+  font-size: 1rem;
+  background-color: #fff;
+  color: #2575fc;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+.login-form button:hover {
+  background-color: #e0e0e0;
+  transform: scale(1.03);
+}
+
+.error-message {
+  margin-top: 1rem;
+  color: #ff4d4d;
+  display: none;
+  font-size: 0.9rem;
+}

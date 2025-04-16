@@ -8,24 +8,28 @@
   </head>
   <body>
     <header>
-      <h1>Student Attendance Management System</h1>
+      <h1>🎓 Student Attendance Management System</h1>
     </header>
 
-    <main>
+    <main class="main-content">
       <h2 id="signhead">Sign In As</h2>
       <div class="role-selection">
         <button onclick="redirectTo('Students/student_login.html')">
-          Student
+          👨‍🎓 Student
         </button>
         <button onclick="redirectTo('lecturer/lecturelogin.html')">
-          Lecturer
+          👨‍🏫 Lecturer
         </button>
       </div>
     </main>
 
+    <footer>
+      <p>&copy; 2025 Student Attendance Management System</p>
+    </footer>
+
     <script>
       function redirectTo(page) {
-        window.location.href = `/assets/pages/${page}`; // Dynamically redirect based on the page parameter
+        window.location.href = `/assets/pages/${page}`;
       }
     </script>
   </body>

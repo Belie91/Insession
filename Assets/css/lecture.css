@@ -32,6 +32,7 @@ header h1 {
 nav ul {
   list-style: none;
   display: flex;
+  justify-content: space-around;
   gap: 1.5rem;
   flex-wrap: wrap;
 }
@@ -179,4 +180,11 @@ footer {
   color: red;
   text-align: center;
   margin-top: 1rem;
+}
+
+/*pin minimize*/
+.pin-display {
+  margin-left: 10px;
+  font-weight: bold;
+  color: #1db954;
 }
