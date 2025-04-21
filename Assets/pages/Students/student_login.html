@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Student Login</title>
-    <link rel="stylesheet" href="/Assets/css/studentlogin.css" />
+    <link rel="stylesheet" href="../../css/studentlogin.css" />
   </head>
   <body>
     <div class="login-wrapper">
@@ -13,16 +13,23 @@
       </header>
 
       <main>
-        <form id="studentLoginForm" class="login-form">
+        <form
+          action="student_login.php"
+          method="post"
+          id="studentLoginForm"
+          class="login-form"
+        >
           <input
             type="text"
             id="username"
+            name="username"
             placeholder="Enter Student ID"
             required
           />
           <input
             type="password"
             id="password"
+            name="password"
             placeholder="Enter Password"
             required
           />
